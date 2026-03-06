@@ -1,0 +1,39 @@
+{
+  "name": "@eslam-reda-div/bridger",
+  "version": "2.0.0",
+  "description": "Universal Runtime Bridge - Use any Python/PHP package directly from Node.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "bridger": "bin/bridger.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"const fs=require('fs'),p=require('path'),s=p.join('src','workers'),d=p.join('dist','workers');fs.mkdirSync(d,{recursive:true});fs.readdirSync(s).forEach(f=>fs.copyFileSync(p.join(s,f),p.join(d,f)))\"",
+    "test": "npm run build && jest --runInBand --forceExit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "bridge",
+    "python",
+    "php",
+    "runtime",
+    "cross-language",
+    "interop",
+    "universal",
+    "package-manager"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "jest": "^30.2.0",
+    "typescript": "^5.0.0"
+  }
+}
