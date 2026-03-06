@@ -4,6 +4,27 @@
 
 Instead of rewriting libraries, Bridger runs them in their native runtime and bridges the communication via a fast IPC protocol. You call Python's `numpy.sum()` or PHP's `Collection::make()` as if they were native JavaScript functions.
 
+## Prerequisites
+
+Bridger does **not** bundle Python or PHP — it uses the runtimes already installed on your machine.
+
+| Runtime                  | Required for          | How to install                                                                        |
+| ------------------------ | --------------------- | ------------------------------------------------------------------------------------- |
+| **Node.js** ≥ 16         | Always                | [nodejs.org](https://nodejs.org)                                                      |
+| **Python** ≥ 3.8         | Using Python packages | [python.org](https://www.python.org/downloads/)                                       |
+| **PHP** ≥ 8.0 + Composer | Using PHP packages    | [php.net](https://www.php.net/downloads) / [getcomposer.org](https://getcomposer.org) |
+
+> You only need the runtime for the language you plan to use. If you only use Python packages, PHP is not required (and vice versa).
+
+Verify your setup:
+
+```bash
+node --version    # v16+ required
+python --version  # needed for python:* packages
+php --version     # needed for php:* packages
+composer --version # needed for php:* packages
+```
+
 ## Architecture
 
 ```
