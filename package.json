@@ -2,6 +2,10 @@
   "name": "@eslam-reda-div/bridger",
   "version": "1.0.0",
   "description": "Universal Runtime Bridge - Use any Python/PHP package directly from Node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eslam-reda-div/bridger"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
