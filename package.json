@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "tsc && node -e \"const fs=require('fs'),p=require('path'),s=p.join('src','workers'),d=p.join('dist','workers');fs.mkdirSync(d,{recursive:true});fs.readdirSync(s).forEach(f=>fs.copyFileSync(p.join(s,f),p.join(d,f)))\"",
-    "test": "npm run build && jest --runInBand --forceExit",
+    "test": "npm run build && jest --runInBand --forceExit --coverage",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

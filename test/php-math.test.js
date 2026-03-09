@@ -44,7 +44,7 @@ describe('brick/math — BigInteger', () => {
 
     test('division', async () => {
         const a = await php.Brick.Math.BigInteger.of('100');
-    const b = await a.quotient('3');
+        const b = await a.quotient('3');
     });
 
     test('power', async () => {
@@ -119,7 +119,8 @@ describe('brick/math — BigDecimal', () => {
 
     test('exact division', async () => {
         const a = await php.Brick.Math.BigDecimal.of('10');
-        const b = await a.dividedByExact('4');
+        const RoundingMode = php.Brick.Math.RoundingMode;
+        const b = await a.dividedBy('4', 1, await RoundingMode.UNNECESSARY.$value());
         const str = await b.__toString();
         expect(str).toBe('2.5');
     });
@@ -155,14 +156,16 @@ describe('brick/math — BigRational', () => {
     test('addition', async () => {
         const a = await php.Brick.Math.BigRational.of('1/3');
         const b = await a.plus('1/6');
-        const str = await b.__toString();
+        const c = await b.simplified();
+        const str = await c.__toString();
         expect(str).toBe('1/2');
     });
 
     test('multiplication', async () => {
         const a = await php.Brick.Math.BigRational.of('2/3');
         const b = await a.multipliedBy('3/4');
-        const str = await b.__toString();
+        const c = await b.simplified();
+        const str = await c.__toString();
         expect(str).toBe('1/2');
     });
 
